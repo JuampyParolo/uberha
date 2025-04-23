@@ -4,13 +4,19 @@ import os
 
 app = Flask(__name__)
 
-CLIENT_ID = os.getenv("sFksMuO06Q_g6XGayHtixwegmCAPjBl4")
-CLIENT_SECRET = os.getenv("_njo4RLJS0E2jNU9ImLzlsBMirjTrJH8FNOqqXS_")
+CLIENT_ID = os.getenv("UBER_CLIENT_ID")
+CLIENT_SECRET = os.getenv("UBER_CLIENT_SECRET")
 REDIRECT_URI = os.getenv("UBER_REDIRECT_URI", "https://uberha.onrender.com/callback")
 
 @app.route("/")
 def index():
-    auth_url = f"https://login.uber.com/oauth/v2/authorize?client_id={CLIENT_ID}&response_type=code&scope=profile&redirect_uri={REDIRECT_URI}"
+    auth_url = (
+        f"https://login.uber.com/oauth/v2/authorize"
+        f"?client_id={CLIENT_ID}"
+        f"&response_type=code"
+        f"&scope=profile"
+        f"&redirect_uri={REDIRECT_URI}"
+    )
     return f'<a href="{auth_url}">Iniciar sesión con Uber</a>'
 
 @app.route("/callback")
@@ -28,5 +34,5 @@ def callback():
         "code": code
     }
 
-    r = requests.post(token_url, data=data)
-    return r.json()
+    response = requests.post(token_url, data=data)
+    return response.json()
