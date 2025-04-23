@@ -6,9 +6,9 @@ services:
     startCommand: python app.py
     plan: free
     envVars:
-      - key: UBER_CLIENT_ID
+      - key: sFksMuO06Q_g6XGayHtixwegmCAPjBl4
         sync: false
-      - key: UBER_CLIENT_SECRET
+      - key: _njo4RLJS0E2jNU9ImLzlsBMirjTrJH8FNOqqXS_
         sync: false
-      - key: UBER_REDIRECT_URI
+      - key: https://uberha.onrender.com/callback
         sync: false
