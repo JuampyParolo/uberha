@@ -3,12 +3,10 @@ services:
     name: uber-auth
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: gunicorn app:app
     plan: free
     envVars:
       - key: UBER_CLIENT_ID
-        value: sFksMuO06Q_g6XGayHtixwegmCAPjBl4
       - key: UBER_CLIENT_SECRET
-        value: _njo4RLJS0E2jNU9ImLzlsBMirjTrJH8FNOqqXS_
       - key: UBER_REDIRECT_URI
         value: https://uberha.onrender.com/callback
