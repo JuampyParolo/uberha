@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 CLIENT_ID = os.getenv("sFksMuO06Q_g6XGayHtixwegmCAPjBl4")
 CLIENT_SECRET = os.getenv("_njo4RLJS0E2jNU9ImLzlsBMirjTrJH8FNOqqXS_")
-REDIRECT_URI = os.getenv("UBER_REDIRECT_URI", "https://<TU_DOMINIO>.onrender.com/callback")
+REDIRECT_URI = os.getenv("UBER_REDIRECT_URI", "https://uberha.onrender.com/callback")
 
 @app.route("/")
 def index():
